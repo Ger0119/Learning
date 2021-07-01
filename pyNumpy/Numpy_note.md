@@ -311,6 +311,16 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 |np.var()|方差|
 
 #### 排序，条件函数
+|函数|描述|
+|:---|:---|
+|np.sort(a,axis,kind,order)|排序|
+|np.argsort()|返回数值从小到大index|
+|np.lexsort()|多个序列排序|
+|np.argmin()|返回最小元素index|
+|np.argmax()|返回最大元素index|
+|np.nonzero()|返回非零值index|
+|np.where()|返回满足条件index|
+|np.extract()|根据条件抽取元素|
 
 | 种类                      | 速度 | 最坏情况      | 工作空间 | 稳定性 |
 | :------------------------ | :--- | :------------ | :------- | :----- |
@@ -318,7 +328,10 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 | 'mergesort'（归并排序） | 2    | O(n\*log(n)) | ~n/2     | 是     |
 | 'heapsort'（堆排序）    | 3    |O(n\*log(n)) | 0        | 否     |
 
+
+
 #### 字节交换
+
 |函数|描述|
 |:---|:---|
 |npa.ndarray.byteswap()|将 ndarray 中每个元素中的字节进行大小端转换|

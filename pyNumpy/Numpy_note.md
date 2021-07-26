@@ -5,14 +5,27 @@ dt  = np.dtype(np.int32)
 # int8, int16, int32, int64 四种数据类型可以使用字符串 'i1', 'i2','i4','i8' 代替
 ```
 ### 创建数组
-```python
+```   python
 npa = np.array([(10,),(20,),(30,)],dtype = dt)
 npa = np.asarray([(10,),(20,),(30,)],dtype="int32")  #从已有的队列或元组获取数据
 npa = np.arange(1,101,5,"int")
 npa = np.linspace(1,10,10,endpoint=False) 	  #(start,stop,count)
 npa = np.logspace(1.0 , 2.0 , num=10,base=2)  #默认底数为2
+npa = np.full((3,4),np.nan)      #创建数据全部为np.nan的3x4的数组
 ```
+#### 创建随机数组
+|函数|描述|
+|:---|:---|
+|np.random.seed()|种子，相同种子生成的随机数一样|
+|np.random.rand()|随机数组，输入形状|
+|np.random.randn()|同rand，具有标准正态分布|
+|np.random.random()|随机数组，输入元组|
+|np.random.randint(low,high,size)|大于low小于high的int数据随机数组|
+|np.random.uniform(low,high,size)|大于low小于high的float数据随机数组|
+|np.random.normal(loc,scale,size)|loc平均scale标准偏差size形状|
+
 #### 数组属性
+
 ```python
 npa.ndim      #维度
 npa.shape     #大小
@@ -32,10 +45,11 @@ npa = np.empty([3,2],dtype='int8') #随机数据
 ```python
 npa = np.zeros((2,2))
 npa = np.ones([2,2],dtype=int)
+npa = np.eye(3)
 ```
 
->[[0. 0.]     [[1 1]
- [0. 0.]]     [1 1]]
+>[[0. 0.]     [[1 1]    [[1,0]
+> [0. 0.]]     [1 1]]    [0,1]]
 
 #### 创建数组
 ```python
@@ -110,6 +124,13 @@ npa = np.transpose(npa)
 npa.reshape()			#不能大于原数组 参数为-1时 自动调整
 np.resize(array,(size)) #可以大于原数组 自动填充
 ```
+#### 展开数组
+|函数|描述|
+|:---|:---|
+|flat|数组元素迭代器|
+|flatten|返回展开数组的拷贝|
+|ravel|返回展开数组，修改会影响原数组|
+
 #### 修改数组维度
 ```python
 npa = np.array([[1],[2],[3]])
@@ -228,7 +249,20 @@ np.unique(npa,return_index=True,return_inverse=True,return_counts=True)
 [1 0 2 0 3 1 2 4 0 5]	#原数组index
 [3 2 2 1 1 1]	              #去重重复数量
 
-### 迭代
+#### 生成网格矩阵
+|函数|说明|
+|:---|:---|
+|np.meshgrid(npa,npb)|生成网格矩阵，在3D图形经常使用|
+```python
+npa = np.arange(0,4)
+npb = np.arange(4,7)
+xx,yy = np.meshgrid(npa,npb)
+```
+>[[0,1,2,3]   [[4,4,4]
+>  [0,1,2,3]     [5,5,5]
+>  [01,2,3]]     [6,6,6]]
+
+### 迭代                                                                                                                                                                                                                                                         
 |函数|说明|
 |:---|:---|
 |np.nditer(array,op_flags,flags,order)|返回一维数组|
@@ -295,6 +329,10 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 |np.power()|幂|
 |np.mod()|取余|
 |np.remainder()|取余|
+|np.log()|log底数为自然数e|
+|np.log10()|log底数为10|
+|np.exp()|e\*\*x |
+|np.allclose(npa,npb,atol)|判断误差范围，atol误差大小|
 
 #### 统计函数
 没有传入axis时，将展开计算
@@ -382,7 +420,7 @@ np.matlib.eye(n =  3, M =  4, k =  0, dtype =  float)
 
 | 函数          | 描述                             |
 | :------------ | :------------------------------- |
-| np.dot()         | 两个数组的点积，即元素对应相乘。 |
+| np.dot()         | 两个数组的点积，即元素对应相乘。可用npa @ npb |
 | np.vdot()        | 两个向量的点积                   |
 | np.inner()      | 两个数组的内积                   |
 | np.matmul()     | 两个数组的矩阵积 (两个二维数组返回点积，否则点积后广播) |

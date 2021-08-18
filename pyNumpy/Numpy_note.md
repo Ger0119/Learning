@@ -1,4 +1,6 @@
 ## Numpy
+[numpy doc](https://numpy.org/doc/stable/reference/index.html)
+
 ### 数据类型
 ```python
 dt  = np.dtype(np.int32)
@@ -9,7 +11,7 @@ dt  = np.dtype(np.int32)
 npa = np.array([(10,),(20,),(30,)],dtype = dt)
 npa = np.asarray([(10,),(20,),(30,)],dtype="int32")  #从已有的队列或元组获取数据
 npa = np.arange(1,101,5,"int")
-npa = np.linspace(1,10,10,endpoint=False) 	  #(start,stop,count)
+npa = np.linspace(1,10,10,endpoint=True) 	  #(start,stop,count)
 npa = np.logspace(1.0 , 2.0 , num=10,base=2)  #默认底数为2
 npa = np.full((3,4),np.nan)      #创建数据全部为np.nan的3x4的数组
 ```
@@ -164,14 +166,15 @@ numpy.squeeze(arr, axis)
 |:---|:---|
 |numpy.concatenate((n1,n2,...),axis)|连接数组|
 |numpy.stack((n1,n2,..),axis)|沿轴连接数组|
-|numpy.hstack(n1,n2,..) |水平堆叠(列方向)|
-|numpy.vstack(n1,n2,..) |竖直堆叠(行方向)|
+|numpy.hstack(n1,n2,..) |水平堆叠(列增加)|
+|numpy.vstack(n1,n2,..) |竖直堆叠(行增加方向)|
+
 #### 分割数组
 |函数|描述|
 |:---|:---|
 |numpy.split(arrray, indices_or_sections, axis)|indices_or_sections：如果是一个整数，就用该数平均切分,如果是一个数组，为沿轴切分的位置（左开右闭|
-|numpy.hsplit(array,axis)|水平分割(列方向分割)|
-|numpy.vsplit(array,axis)|竖直分割(行方向分割)|
+|numpy.hsplit(array,indices_or_sections)|水平分割(列方向分割)|
+|numpy.vsplit(array,indices_or_sections)|竖直分割(行方向分割)|
 ```python
 npa = np.array(range(9))
 npb = np.split(npa,3)
@@ -347,6 +350,7 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 |np.average(arr,weights,returned)|加权平均值|
 |np.std()|标准差|
 |np.var()|方差|
+|np.diff(npa,n,axis)|与前一个元素的差，n执行次数|
 
 #### 排序，条件函数
 |函数|描述|
@@ -485,3 +489,6 @@ np.linalg.solve(npa,npb)  #解线性方程
 |np.savetxt(FILENAME, arr, fmt="%d", delimiter=",") |改为数字保存，逗号分割|
 |np.loadtxt(FILENAME, dtype=int, delimiter=' ')|读取数据 空格分割|
 
+
+
+[https://numpy.org/doc/stable/reference/index.html]: 

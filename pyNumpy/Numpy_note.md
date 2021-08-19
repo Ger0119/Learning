@@ -21,9 +21,9 @@ npa = np.full((3,4),np.nan)      #创建数据全部为np.nan的3x4的数组
 |np.random.seed()|种子，相同种子生成的随机数一样|
 |np.random.rand()|随机数组，输入形状|
 |np.random.randn()|同rand，具有标准正态分布|
-|np.random.random()|随机数组，输入元组|
-|np.random.randint(low,high,size)|大于low小于high的int数据随机数组|
-|np.random.uniform(low,high,size)|大于low小于high的float数据随机数组|
+|np.random.random(())|随机数组，输入元组|
+|np.random.randint(low,high,size)|大于等于low小于high的int数据随机数组|
+|np.random.uniform(low,high,size)|大于等于low小于high的float数据随机数组|
 |np.random.normal(loc,scale,size)|loc平均scale标准偏差size形状|
 
 #### 数组属性
@@ -166,8 +166,8 @@ numpy.squeeze(arr, axis)
 |:---|:---|
 |numpy.concatenate((n1,n2,...),axis)|连接数组|
 |numpy.stack((n1,n2,..),axis)|沿轴连接数组|
-|numpy.hstack(n1,n2,..) |水平堆叠(列增加)|
-|numpy.vstack(n1,n2,..) |竖直堆叠(行增加方向)|
+|numpy.hstack((n1,n2,..)) |水平堆叠(列增加)|
+|numpy.vstack((n1,n2,..)) |竖直堆叠(行增加方向)|
 
 #### 分割数组
 |函数|描述|

@@ -295,6 +295,7 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 |invert|按位取反|
 |left_shift|向左移动二进制位|
 |right_shift|向右移动二级制位|
+
 #### 字符串运算
 | 函数           | 描述                                  |
 | :------------- | :----------------------------------- |
@@ -488,7 +489,3 @@ np.linalg.solve(npa,npb)  #解线性方程
 |np.savez(file,arrs,keyword)|多个数组|
 |np.savetxt(FILENAME, arr, fmt="%d", delimiter=",") |改为数字保存，逗号分割|
 |np.loadtxt(FILENAME, dtype=int, delimiter=' ')|读取数据 空格分割|
-
-
-
-[https://numpy.org/doc/stable/reference/index.html]: 

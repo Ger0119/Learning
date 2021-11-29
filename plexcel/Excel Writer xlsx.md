@@ -104,7 +104,7 @@ $worksheet->set_default_row( 24 ,1);
 $worksheet2->set_tab_color( '#FF6600' );
 ```
 #### freeze_panes
->split_panes( $y, $x, $top_row, $left_col )
+>freeze_panes( $y, $x, $top_row, $left_col )
 ```perl
 $worksheet->freeze_panes( 1, 0 );    # Freeze the first row
 $worksheet->freeze_panes( 'A2' );    # Same using A1 notation
@@ -121,7 +121,8 @@ $worksheet->freeze_panes( 'C2' );    # Same using A1 notation
 
 ## chart
 ```perl
-$chart = $workbook->add_chart( type ->'column',embedded=>1 )
+$chart = $workbook->add_chart( type =>'column',embedded=>1 );
+$worksheet->insert_chart( "A1" , $chart);
 ```
 
 | type | graph |

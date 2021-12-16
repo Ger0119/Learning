@@ -88,6 +88,11 @@ ws["A2"].number_format   # 返回 'yyyy-mm-dd h:mm:ss'
 ws.title = "Sheet"  # 设置工作表名
 ws.sheet_properties.tabColor = "1072BA"   # 设置工作表颜色
 ```
+#### Size
+```python
+ws.row_dimensions[1].height = 20
+ws.column_dimensions["A"].width = 5 
+```
 #### Cell type
 ```python
 ws["A1"].data_type = "n"  # 默认为 n 数值  s 字符串  d 日期时间
@@ -261,3 +266,14 @@ cell.alignment = Alignment()
 Alignment(horizontal="fill",vertical="center")
 ```
 
+## Function
+```python
+from openpyxl.utils import (get_column_letter,
+                           column_index_from_string,
+                           cols_from_range, # rows_from_range
+                           get_column_interval,)
+get_column_letter(1)           # A
+column_index_from_string("A")  # 1
+[x for x in cols_from_range("A1:D1")] # [("A1"),("B1"),("C1")]
+get_column_interval(1,5)       # ['A', 'B', 'C', 'D', 'E']
+```

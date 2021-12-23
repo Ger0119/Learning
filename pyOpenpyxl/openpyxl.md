@@ -69,6 +69,9 @@ ws.append([1,2,3])  # 在最后一行添加数据
 # Write formulae
 ws["A1"] = "=SUM(B1+1)"
 
+# Write hyperlink
+ws["A1"].hyperlink = 'Excel.xlsx#Sheet!A2'
+
 # Write Range
 for row in ws.iter_rows(min_row=1, max_col=3, max_row=2):
     for cell in row:

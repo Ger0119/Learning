@@ -56,6 +56,9 @@ foreach(@$data){	       #读取数据
 $sheet->Cells->{Value} = "A";
 $sheet->Range("A8:C9")->{Value} = [[ undef, 'Xyzzy', 'Plugh' ],
                                    [ 42,    'Perl',  3.1415  ]];
+#写入hyperlink
+$worksheet->Hyperlinks->Add({ Anchor  => $worksheet->Range("A1:A1"),
+                              Address => "Excel.xlsx#Sheet1!A5"});
 @data = ();
 push @data,[1,2,3,4,5];
 push @data,[4,5,6,7,8];

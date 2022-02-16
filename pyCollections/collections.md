@@ -1,4 +1,5 @@
 # Collections
+
 ## Counter
 ```python
 s = "abcbcaccbbad"
@@ -32,6 +33,7 @@ t.elements()
 
 ## deque
 二重終端キュー
+
 |function|notice|
 |:---------------------|:----|
 |append()|キューの右に元素を追加|

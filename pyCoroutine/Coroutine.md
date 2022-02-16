@@ -28,7 +28,6 @@ async def job():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(job())
-loop.close()
 ```
 ### aiohttp
 ```python

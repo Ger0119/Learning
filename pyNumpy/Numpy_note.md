@@ -333,6 +333,8 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 |np.power()|幂|
 |np.mod()|取余|
 |np.remainder()|取余|
+|np.sqrt()|方根|
+|np.clip(npa,max,min)|范围|
 |np.log()|log底数为自然数e|
 |np.log10()|log底数为10|
 |np.exp()|e\*\*x |
@@ -355,7 +357,7 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 
 #### 排序，条件函数
 |函数|描述|
-|:---|:---|
+|:---|:---|s
 |np.sort(a,axis,kind,order)|排序|
 |np.argsort()|返回数值从小到大index|
 |np.lexsort()|多个序列排序|

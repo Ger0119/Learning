@@ -379,6 +379,8 @@ for x in np.nditer(a,flags=['external_loop'],order='F'):
 
 |函数|描述|
 |:---|:---|
+|npa.bytes()|ndarray转换为bytes|
+|np.frombuffer(npa,dtype=np.uint8)|将bytes转化为ndarray|
 |npa.ndarray.byteswap()|将 ndarray 中每个元素中的字节进行大小端转换|
 
 ```python
